@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "seedDev": "node dbConfig/seedDev.js",
     "start": "nodemon index.js"
   },
   "keywords": [],

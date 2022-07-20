@@ -5,7 +5,7 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-const postRoutes = require('./controllers/posts');
+const postRoutes = require('./routes/posts');
 
 server.use('/posts', postRoutes);
 
