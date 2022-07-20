@@ -48,17 +48,13 @@ module.exports = class Post {
   static findById(id) {
     return new Promise(async (resolve, reject) => {
       try {
-        let bookData = await db.query(
-          `SELECT books.*, authors.name AS author_name
-                                                    FROM books 
-                                                    JOIN authors ON books.author_id = authors.id
-                                                    WHERE books.id = $1;`,
-          [id]
-        );
-        let book = new Book(bookData.rows[0]);
-        resolve(book);
+        let postData = await db.query(`SELECT * FROM posts WHERE id = $1;`, [
+          id,
+        ]);
+        let post = new Post(postData.rows[0]);
+        resolve(post);
       } catch (err) {
-        reject('Book not found');
+        reject('Post not found');
       }
     });
   }
