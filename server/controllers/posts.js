@@ -1,13 +1,13 @@
 const Post = require('../models/post');
 
-async function index (req, res) {
-    try {
-        const posts = await Post.all;
-        res.status(200).json(posts)
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({err})
-    }
+async function index(req, res) {
+  try {
+    const posts = await Post.all;
+    res.status(200).json(posts);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ err });
+  }
 }
 
 // async function show (req, res) {
@@ -19,14 +19,14 @@ async function index (req, res) {
 //     }
 // }
 
-// async function create (req, res) {
-//     try {
-//         const book = await Book.create(req.body);
-//         res.status(201).json(book)
-//     } catch (err) {
-//         res.status(422).json({err})
-//     }
-// }
+async function create(req, res) {
+  try {
+    const post = await Post.create(req.body);
+    res.status(201).json(post);
+  } catch (err) {
+    res.status(422).json({ err });
+  }
+}
 
 // async function destroy (req, res) {
 //     try {
@@ -38,5 +38,4 @@ async function index (req, res) {
 //     };
 // }
 
-module.exports = { index }
-
+module.exports = { index, create };
