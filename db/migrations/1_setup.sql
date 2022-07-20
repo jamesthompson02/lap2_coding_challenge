@@ -2,8 +2,8 @@ DROP TABLE IF EXISTS posts;
 
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(90),
-    pseudonym VARCHAR(60),
-    body VARCHAR(500),
-    date DATE
+    title VARCHAR(90) NOT NULL,
+    pseudonym VARCHAR(60) NOT NULL,
+    body VARCHAR(500) NOT NULL,
+    date1 TIMESTAMP NOT NULL
 );

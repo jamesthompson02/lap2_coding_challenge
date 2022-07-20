@@ -11,7 +11,7 @@ module.exports = class Post {
     this.title = data.title;
     this.pseudonym = data.pseudonym;
     this.body = data.body;
-    this.date = data.date;
+    this.date1 = data.date1;
     //{ name: data.author_name, path: `/authors/${data.author_id}`};
   }
 
@@ -30,10 +30,10 @@ module.exports = class Post {
   static create(postDataInsert) {
     return new Promise(async (resolve, reject) => {
       try {
-        const { title, pseudonym, body } = postDataInsert;
+        const { title, pseudonym, body, date } = postDataInsert;
         let postData = await db.query(
-          'INSERT INTO posts (title, pseudonym, body, date) VALUES ($1, $2, $3, date(now())) RETURNING *;',
-          [title, pseudonym, body]
+          'INSERT INTO posts (title, pseudonym, body, date1) VALUES ($1, $2, $3, $4) RETURNING *;',
+          [title, pseudonym, body, date]
         );
 
         let newPost = new Post(postData.rows[0]);
