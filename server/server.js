@@ -7,7 +7,7 @@ server.use(express.json());
 
 const postRoutes = require('./controllers/posts');
 
-server.use('/dogs', postRoutes);
+server.use('/posts', postRoutes);
 
 const port = process.env.PORT || 3000;
 
