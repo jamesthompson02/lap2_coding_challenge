@@ -5,5 +5,5 @@ CREATE TABLE posts (
     title VARCHAR(90) NOT NULL,
     pseudonym VARCHAR(60) NOT NULL,
     body VARCHAR(500) NOT NULL,
-    date1 TIMESTAMP NOT NULL
+    date1 VARCHAR(30) NOT NULL
 );
